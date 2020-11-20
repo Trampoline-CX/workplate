@@ -6,6 +6,9 @@
   "repository": "git@github.com:Trampoline-CX/workplate.git",
   "author": "Trampoline",
   "license": "MIT",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "clean": "rm -rf dist/",
     "prebuild": "echo \"{ \\\"version\\\": \\\"$npm_package_version\\\", \\\"description\\\": \\\"$npm_package_description\\\" }\" > src/package-info.json",
@@ -13,7 +16,6 @@
     "lint": "eslint . --ext ts --ext js",
     "start": "ts-node src/index.ts"
   },
-  "private": false,
   "devDependencies": {
     "@types/degit": "^2.8.0",
     "@types/node": "^12",

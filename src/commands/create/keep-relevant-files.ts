@@ -25,7 +25,9 @@ const _keepRelevantWorkspaces = (
   logger: CaporalLogger,
 ): void => {
   logger.debug('Getting list of workspaces in repo.')
-  const workspacesInfo = exec('yarn', ['workspaces', 'info', '--json'], { cwd: repoPath })
+  const workspacesInfo = exec('yarn', ['--silent', 'workspaces', 'info', '--json'], {
+    cwd: repoPath,
+  })
   logger.debug('Workspaces list JSON', workspacesInfo)
 
   const parsedInfo: WorkspacesInfo = JSON.parse(workspacesInfo)

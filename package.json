@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "Use Yarn Workspaces to define complex project templates.",
   "bin": "dist/index.js",
-  "repository": "git@github.com:Trampoline-CX/workplate.git",
+  "repository": "https://github.com/Trampoline-CX/workplate.git",
   "author": "Trampoline",
   "license": "MIT",
   "files": [

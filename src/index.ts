@@ -28,7 +28,7 @@ prog
     },
   )
   .argument('<repository>', 'Repository URL to clone from')
-  .option('-w, --workspace <template>', 'Workspace Name to clone', prog.STRING)
+  .option('-w, --workspace <template>', 'Workspace Name to clone', prog.REPEATABLE)
   .action((args, options, logger) => {
     create(args as CreateArgs, options as CreateOptions, logger)
   })

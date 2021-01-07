@@ -14,14 +14,14 @@ export const keepRelevantFiles = (
   rmdirSync(path.join(repoPath, '.git'), { recursive: true })
 
   // Keep only certain templates, if --template option is provided
-  if (typeof options.workspace === 'string' && options.workspace.length > 0) {
+  if (options.workspace && options.workspace.length > 0) {
     _keepRelevantWorkspaces(repoPath, options.workspace, logger)
   }
 }
 
 const _keepRelevantWorkspaces = (
   repoPath: string,
-  workspaceName: string,
+  workspaceNames: string[],
   logger: CaporalLogger,
 ): void => {
   logger.debug('Getting list of workspaces in repo.')
@@ -33,7 +33,9 @@ const _keepRelevantWorkspaces = (
   const parsedInfo: WorkspacesInfo = JSON.parse(workspacesInfo)
   const workspacesToKeep: WorkspacesInfo = {}
 
-  _recursiveGetDependencies(parsedInfo, workspaceName, workspacesToKeep)
+  for (const name of workspaceNames) {
+    _recursiveGetDependencies(parsedInfo, name, workspacesToKeep)
+  }
   logger.debug('Workspaces to keep', workspacesInfo)
 
   const workspacesToRemove = Object.fromEntries(

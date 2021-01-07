@@ -11,7 +11,7 @@ export interface CreateArgs {
 }
 
 export interface CreateOptions {
-  workspace?: string
+  workspace?: string[]
 }
 
 export const create = (args: CreateArgs, options: CreateOptions, logger: CaporalLogger): void => {
